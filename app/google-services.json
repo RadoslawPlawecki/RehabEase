@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "448946307849",
+    "project_id": "rehabease-df1d9",
+    "storage_bucket": "rehabease-df1d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448946307849:android:53fa3804358f264d8d89d8",
+        "android_client_info": {
+          "package_name": "com.application.rehabease"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuAQsZ12cW-DsKfqzlnqwQ_1NQUFoIs9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
