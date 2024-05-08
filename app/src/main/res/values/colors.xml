@@ -14,4 +14,8 @@
     <color name="adjustExercise">#DF9300</color>
     <color name="trainingEvaluation">#B44720</color>
     <color name="rectangle">#FFFAF5</color>
+    <color name="rate_bad">#D53737</color>
+    <color name="rate_decent">#D58D37</color>
+    <color name="rate_good">#50A33B</color>
+    <color name="signOut">#AC0000</color>
 </resources>

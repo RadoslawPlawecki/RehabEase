@@ -36,6 +36,27 @@
     <activity
         android:name=".DashboardActivity"
         android:exported="true" />
-    </application>
+    <activity
+        android:name=".TipActivity"
+        android:exported="true" />
+    <activity
+        android:name=".ThankYouActivity"
+        android:exported="true" />
+    <activity
+        android:name=".TreatmentDetailsActivity"
+        android:exported="true" />
+        <activity
+            android:name=".YourActivityActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AdjustExerciseActivity"
+            android:exported="true" />
+        <activity
+            android:name=".TrainingEvaluationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MenuActivity"
+            android:exported="true" />
+</application>
 
 </manifest>
