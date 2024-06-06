@@ -90,10 +90,10 @@
         app:layout_constraintTop_toBottomOf="@+id/rectimage" />
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/tip_text"
         android:layout_width="288dp"
         android:layout_height="296dp"
-        android:text="@string/lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_nulla_dolor_nunc_tincidunt_vel_auctor_eu_suscipit_et_libero_etiam_venenatis_elementum_ipsum_vitae_volutpat_erat_mattis_in_etiam_a_velit_lacinia_lobortis_neque_vel_posuere_velit_quisque_auctor_tellus_libero_a_ornare_tortor_rhoncus_a_phasellus_eget_volutpat_mauris_suspendisse_hendrerit_quam_maximus_nisi_rutrum_pellentesque_etiam_malesuada_libero_eget_aliquet_efficitur_integer_mattis_venenatis_odio_etiam_neque_ipsum_blandit_vitae_velit_egestas_imperdiet_dictum_mi_ut_consectetur_ut_tellus_vel_efficitur"
+        android:hint="@string/tip_of_the_day_loading"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -115,7 +115,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text"
+        app:layout_constraintTop_toBottomOf="@+id/tip_text"
         app:layout_constraintVertical_bias="0.122" />
 
     <Button
