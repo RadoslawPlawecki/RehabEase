@@ -2,6 +2,7 @@ package com.application.rehabease
 
 
 
+
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -16,7 +17,7 @@ import kotlin.random.Random
 object TipService {
 
     private const val OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"
-    private const val OPENAI_API_KEY = "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"
+    private const val OPENAI_API_KEY = " "
 
     private val prompts = listOf(
 
