@@ -7,6 +7,13 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 
 class DashboardActivity : AppCompatActivity() {
     private lateinit var openMenu: ImageView
@@ -15,9 +22,11 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var yourActivityButton: Button
     private lateinit var adjustExerciseButton: Button
     private lateinit var trainingEvaluationButton: Button
+    private lateinit var helloTextView: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
+        helloTextView = findViewById(R.id.hello)
         openMenu = findViewById(R.id.image_bars)
         openMenu.setOnClickListener {
             val intent = Intent(this@DashboardActivity, MenuActivity::class.java)
@@ -47,6 +56,33 @@ class DashboardActivity : AppCompatActivity() {
         trainingEvaluationButton.setOnClickListener {
             val intent = Intent(this@DashboardActivity, TrainingEvaluationActivity::class.java)
             startActivity(intent)
+        }
+        CoroutineScope(Dispatchers.Main).launch {
+            helloUser()
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private suspend fun helloUser() {
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            val uid = user.uid
+            val db = FirebaseFirestore.getInstance()
+            val userRef = db.collection("users").document(uid)
+            try {
+                val documentSnapshot = withContext(Dispatchers.IO) {
+                    userRef.get().await()
+                }
+                if (documentSnapshot.exists()) {
+                    val name = documentSnapshot.getString("name") ?: "User"
+                    helloTextView.text = "Hello $name!"
+                } else {
+                    helloTextView.text = "Hello User!"
+                }
+            } catch (e: Exception) {
+                helloTextView.text = "Hello User!"
+                e.printStackTrace()
+            }
         }
     }
 }

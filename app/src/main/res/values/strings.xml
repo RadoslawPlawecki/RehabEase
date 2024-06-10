@@ -41,8 +41,15 @@
     <string name="your_age">Your age</string>
     <string name="home">Home</string>
     <string name="training_evaluation">Training evaluation</string>
-    <string-array name="injuries">
-        <item>Injury 1.</item>
-        <item>Injury 2.</item>
-    </string-array>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_nulla_dolor_nunc_tincidunt_vel_auctor_eu_suscipit_et_libero_etiam_venenatis_elementum_ipsum_vitae_volutpat_erat_mattis_in_etiam_a_velit_lacinia_lobortis_neque_vel_posuere_velit_quisque_auctor_tellus_libero_a_ornare_tortor_rhoncus_a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dolor nunc, tincidunt vel auctor eu, suscipit et libero. Etiam venenatis elementum ipsum, vitae volutpat erat mattis in. Etiam a velit lacinia, lobortis neque vel, posuere velit. Quisque auctor tellus libero, a ornare tortor rhoncus a.</string>
+    <string name="wishing_you_fast_recovery">Wishing you fast recovery!</string>
+    <string name="choose_your_injury">Choose your injury</string>
+    <string name="share_your_training">Share your training</string>
+    <string name="plot_your_activity">Plot your activity</string>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_nulla_dolor_nunc_tincidunt_vel_auctor_eu_suscipit_et_libero_etiam_venenatis_elementum_ipsum_vitae_volutpat_erat_mattis_in">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dolor nunc, tincidunt vel auctor eu, suscipit et libero. Etiam venenatis elementum ipsum, vitae volutpat erat mattis in.</string>
+    <string name="choose_your_training">Choose your training</string>
+    <string name="enter_date_of_the_training">Date</string>
+    <string name="enter_duration_of_the_training">Duration</string>
+    <string name="submit">Submit</string>
+    <string name="select_duration">Select duration</string>
 </resources>

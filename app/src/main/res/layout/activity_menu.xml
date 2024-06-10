@@ -37,7 +37,7 @@
         app:layout_constraintTop_toTopOf="@+id/orange_rect" />
 
     <ImageView
-        android:id="@+id/image_bars"
+        android:id="@+id/image_return"
         android:layout_width="31dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
@@ -89,7 +89,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_home"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/wrench_solid" />
+        app:srcCompat="@drawable/icon_settings" />
 
     <ImageView
         android:id="@+id/image_sign_out"

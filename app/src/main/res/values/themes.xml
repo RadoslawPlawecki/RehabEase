@@ -11,6 +11,7 @@
         <item name="buttonStyle">@style/defaultButton</item>
         <item name="editTextStyle">@style/defaultEditText</item>
         <item name="android:textViewStyle">@style/defaultTextView</item>
+        <item name="android:dropDownListViewStyle">@style/SpinnerStyle</item>
     </style>
 
     <style name="defaultButton" parent="Widget.AppCompat.Button">
@@ -32,6 +33,15 @@
         <item name="android:textColorHint">@color/textEditColor</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="SpinnerStyle" parent="Widget.AppCompat.ListView.DropDown">
+        <item name="android:divider">#EFEFEF</item>
+        <item name="android:dividerHeight">1dp</item>
+    </style>
+
+    <style name="AppTheme.Picker" parent="Theme.AppCompat.Light.NoActionBar" >
+        <item name="android:textColorPrimary">@android:color/black</item>
     </style>
 
     <style name="Theme.RehabEase" parent="android:Theme.Material.Dialog.NoActionBar" />

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".RegisterActivity">
+    tools:context=".both.RegisterActivity" >
 
     <TextView
         android:id="@+id/welcome_onboard"

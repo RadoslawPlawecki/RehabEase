@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".TreatmentDetailsActivity">
+    tools:context=".TreatmentDetailsResultActivity">
 
 
     <ImageView
@@ -80,12 +80,10 @@
         android:id="@+id/injuries"
         android:layout_width="278dp"
         android:layout_height="62dp"
-        android:layout_marginTop="88dp"
+        android:dropDownVerticalOffset="70dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/spinner_bg_arrow_down"
         android:popupBackground="@color/white"
-        android:hint="@string/choose_your_injury"
-        android:textColorHint="@color/textEditColor"
-        android:dropDownVerticalOffset="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -100,9 +98,9 @@
         android:background="@drawable/rounded_rectangle"
         android:backgroundTint="@color/white"
         android:ems="10"
+        android:fontFamily="@font/markazi_text_bold"
         android:hint="@string/your_age"
         android:inputType="number"
-        android:fontFamily="@font/markazi_text_bold"
         android:textColor="@color/simpleTextColor"
         android:textColorHint="@color/textEditColor"
         android:textSize="24sp"
@@ -111,14 +109,14 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/injuries"
-        app:layout_constraintVertical_bias="0.088" />
+        app:layout_constraintVertical_bias="0.070" />
 
     <Button
         android:id="@+id/calculate_recovery_time_button"
         android:layout_width="277dp"
         android:layout_height="84dp"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="@color/colorPrimary"
         android:text="@string/calculate_recovery_time"
         android:textSize="28sp"
@@ -128,14 +126,43 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextNumber"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/ai_text"
+        android:layout_width="299dp"
+        android:layout_height="154dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_nulla_dolor_nunc_tincidunt_vel_auctor_eu_suscipit_et_libero_etiam_venenatis_elementum_ipsum_vitae_volutpat_erat_mattis_in_etiam_a_velit_lacinia_lobortis_neque_vel_posuere_velit_quisque_auctor_tellus_libero_a_ornare_tortor_rhoncus_a"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculate_recovery_time_button"
+        app:layout_constraintVertical_bias="0.103" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:fontFamily="@font/markazi_text_semibold"
+        android:text="@string/wishing_you_fast_recovery"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculate_recovery_time_button"
+        app:layout_constraintVertical_bias="1.0" />
+
     <ImageView
         android:id="@+id/more_info_image"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintHorizontal_bias="0.101"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rectimage"
         app:layout_constraintVertical_bias="0.0"

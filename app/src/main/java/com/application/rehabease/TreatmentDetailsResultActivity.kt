@@ -1,6 +1,5 @@
 package com.application.rehabease
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -8,26 +7,21 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat.setBackground
 import com.application.customization.CustomSpinner
 import com.google.firebase.firestore.FirebaseFirestore
 
-class TreatmentDetailsActivity: AppCompatActivity(), CustomSpinner.OnSpinnerEventsListener {
+class TreatmentDetailsResultActivity : AppCompatActivity(), CustomSpinner.OnSpinnerEventsListener {
     private lateinit var openMenu: ImageView
     private lateinit var spinner: CustomSpinner
     private lateinit var adapter: ArrayAdapter<CharSequence>
     private lateinit var calculateButton: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_treatment_details)
+        setContentView(R.layout.activity_treatment_details_result)
         openMenu = findViewById(R.id.image_bars)
         calculateButton = findViewById(R.id.calculate_recovery_time_button)
         openMenu.setOnClickListener {
-            val intent = Intent(this@TreatmentDetailsActivity, MenuActivity::class.java)
-            startActivity(intent)
-        }
-        calculateButton.setOnClickListener {
-            val intent = Intent(this@TreatmentDetailsActivity, TreatmentDetailsResultActivity::class.java)
+            val intent = Intent(this@TreatmentDetailsResultActivity, MenuActivity::class.java)
             startActivity(intent)
         }
         spinner = findViewById(R.id.injuries)

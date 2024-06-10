@@ -17,7 +17,7 @@ import kotlin.random.Random
 object TipService {
 
     private const val OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"
-    private const val OPENAI_API_KEY = " "
+    private const val OPENAI_API_KEY = "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"
 
     private val prompts = listOf(
 

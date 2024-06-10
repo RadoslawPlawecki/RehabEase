@@ -1,10 +1,11 @@
-package com.application.rehabease
+package com.application.rehabease.both
 
 import android.view.Gravity
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import androidx.core.content.ContextCompat
+import com.application.rehabease.R
 
 open class BaseActivity : AppCompatActivity() {
     fun showErrorSnackBar(message: String, errorMessage: Boolean) {
@@ -18,9 +19,13 @@ open class BaseActivity : AppCompatActivity() {
         textView.textSize = 20f
         textView.gravity = Gravity.CENTER
         if (errorMessage) {
-            snackBarView.setBackgroundColor(ContextCompat.getColor(this@BaseActivity, R.color.snackBarFailure))
+            snackBarView.setBackgroundColor(ContextCompat.getColor(this@BaseActivity,
+                R.color.snackBarFailure
+            ))
         } else {
-            snackBarView.setBackgroundColor(ContextCompat.getColor(this@BaseActivity, R.color.snackBarSuccess))
+            snackBarView.setBackgroundColor(ContextCompat.getColor(this@BaseActivity,
+                R.color.snackBarSuccess
+            ))
         }
         snackBar.show()
     }

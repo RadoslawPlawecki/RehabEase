@@ -11,8 +11,10 @@
                 </shape>
             </item>
             <item
-                android:drawable="@drawable/baseline_arrow_drop_down_24"
-                android:gravity="end" />
+                android:drawable="@drawable/angle_down_solid_dark"
+                android:width="20dp"
+                android:height="25dp"
+                android:gravity="center_vertical|end" />
         </layer-list>
     </item>
 </selector>
