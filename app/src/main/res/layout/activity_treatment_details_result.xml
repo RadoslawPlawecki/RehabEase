@@ -127,11 +127,11 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/ai_text"
+        android:id="@+id/treatment_time_text"
         android:layout_width="299dp"
         android:layout_height="154dp"
         android:layout_marginTop="20dp"
-        android:text="@string/lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_nulla_dolor_nunc_tincidunt_vel_auctor_eu_suscipit_et_libero_etiam_venenatis_elementum_ipsum_vitae_volutpat_erat_mattis_in_etiam_a_velit_lacinia_lobortis_neque_vel_posuere_velit_quisque_auctor_tellus_libero_a_ornare_tortor_rhoncus_a"
+        android:text="@string/treatment_time_loading"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
