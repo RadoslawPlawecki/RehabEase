@@ -3,7 +3,6 @@ package com.application.rehabease
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.DatePickerDialog
-import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
@@ -32,7 +31,7 @@ class ShareYourTrainingActivity : AppCompatActivity() {
             val month = c.get(Calendar.MONTH)
             val day = c.get(Calendar.DAY_OF_MONTH)
             val datePickerDialog = DatePickerDialog(
-                this, { view, year, monthOfYear, dayOfMonth ->
+                this, { _, year, monthOfYear, dayOfMonth ->
                     dateText.text = (dayOfMonth.toString() + "/" + (monthOfYear + 1) + "/" + year)
                 }, year, month, day
             )

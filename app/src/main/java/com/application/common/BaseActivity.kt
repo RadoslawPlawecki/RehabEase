@@ -1,4 +1,4 @@
-package com.application.rehabease.both
+package com.application.common
 
 import android.view.Gravity
 import android.widget.TextView

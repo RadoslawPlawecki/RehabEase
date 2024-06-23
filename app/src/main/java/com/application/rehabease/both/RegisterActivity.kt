@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import com.application.common.UserRole
+import com.application.common.BaseActivity
 import com.application.rehabease.DashboardActivity
 import com.application.rehabease.R
 import com.google.firebase.auth.FirebaseAuth

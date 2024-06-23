@@ -1,10 +1,10 @@
-package com.application.rehabease
+package com.application.rehabease.both
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.application.rehabease.both.RegisterActivity
+import com.application.rehabease.R
 
 class TitleActivity : AppCompatActivity() {
     private lateinit var button: Button
