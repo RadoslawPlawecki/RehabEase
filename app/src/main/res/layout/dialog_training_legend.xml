@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:layout_margin="15dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_dialog"
+        android:clipToPadding="true"
+        android:orientation="vertical"
+        android:padding="15dp" >
+
+        <TextView
+            android:id="@+id/legend_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="Legend"
+            android:fontFamily="@font/markazi_text_semibold"
+            android:textSize="28sp"
+            android:textAlignment="center"
+            android:lineSpacingMultiplier="0.9" />
+
+        <TextView
+            android:id="@+id/legend_rating_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/markazi_text_regular"
+            android:lineSpacingMultiplier="0.9"
+            android:text="@string/grading_system"
+            android:clickable="true"
+            android:textSize="24sp"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/legend_date_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/markazi_text_regular"
+            android:lineSpacingMultiplier="0.9"
+            android:text="2024-06-23 – date of a training."
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/legend_duration_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/markazi_text_regular"
+            android:lineSpacingMultiplier="0.9"
+            android:text="10 minutes – duration of a training."
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/legend_trash_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/markazi_text_regular"
+            android:lineSpacingMultiplier="0.9"
+            android:text="Trash icon – remove a training."
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/legend_button"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_gravity="center"
+            android:text="Return back" />
+
+    </LinearLayout>
+</LinearLayout>

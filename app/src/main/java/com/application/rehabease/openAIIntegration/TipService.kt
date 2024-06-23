@@ -1,4 +1,4 @@
-package com.application.rehabease
+package com.application.rehabease.openAIIntegration
 
 import android.util.Log
 import kotlinx.coroutines.Dispatchers

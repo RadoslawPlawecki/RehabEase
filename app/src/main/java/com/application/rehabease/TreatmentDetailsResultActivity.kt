@@ -10,11 +10,12 @@ import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.application.common.ActivityUtils
 import com.application.customization.CustomSpinner
+import com.application.rehabease.openAIIntegration.TreatmentTimeViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 
 class TreatmentDetailsResultActivity : AppCompatActivity(), CustomSpinner.OnSpinnerEventsListener {
-    private lateinit var openMenu: ImageView
     private lateinit var spinner: CustomSpinner
     private lateinit var adapter: ArrayAdapter<CharSequence>
     private lateinit var calculateButton: Button
@@ -22,19 +23,13 @@ class TreatmentDetailsResultActivity : AppCompatActivity(), CustomSpinner.OnSpin
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_treatment_details_result)
-
+        ActivityUtils.actionBarSetup(this)
         val TreatmentTimeTextView: TextView = findViewById(R.id.treatment_time_text)
         treatmentTimeViewModel.TreatmentLiveData.observe(this, Observer { tip ->
             TreatmentTimeTextView.text = tip
         })
         treatmentTimeViewModel.fetchTreatmentTime()
-
-        openMenu = findViewById(R.id.image_bars)
         calculateButton = findViewById(R.id.calculate_recovery_time_button)
-        openMenu.setOnClickListener {
-            val intent = Intent(this@TreatmentDetailsResultActivity, MenuActivity::class.java)
-            startActivity(intent)
-        }
         spinner = findViewById(R.id.injuries)
         spinner.setSpinnerEventsListener(this)
         fetchInjuries()
@@ -66,10 +61,10 @@ class TreatmentDetailsResultActivity : AppCompatActivity(), CustomSpinner.OnSpin
     }
 
     override fun onPopupWindowOpened(spinner: CustomSpinner) {
-        spinner.background = getDrawable(R.drawable.spinner_bg_arrow_up)
+        spinner.background = getDrawable(R.drawable.bg_spinner_arrow_up)
     }
 
     override fun onPopupWindowClosed(spinner: CustomSpinner) {
-        spinner.background = getDrawable(R.drawable.spinner_bg_arrow_down)
+        spinner.background = getDrawable(R.drawable.bg_spinner_arrow_down)
     }
 }

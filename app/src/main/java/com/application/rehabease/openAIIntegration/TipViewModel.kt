@@ -1,4 +1,4 @@
-package com.application.rehabease
+package com.application.rehabease.openAIIntegration
 
 import androidx.lifecycle.LiveData
 
@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 import androidx.lifecycle.viewModelScope
+import com.application.rehabease.openAIIntegration.TipService
 
 import kotlinx.coroutines.launch
 

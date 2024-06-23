@@ -11,7 +11,7 @@
                 </shape>
             </item>
             <item
-                android:drawable="@drawable/angle_down_solid_dark"
+                android:drawable="@drawable/ic_angle_up_black"
                 android:width="20dp"
                 android:height="25dp"
                 android:gravity="center_vertical|end" />

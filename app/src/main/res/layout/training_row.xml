@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        app:cardBackgroundColor="@color/background"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/training_row_image"
+                android:layout_width="245dp"
+                android:layout_height="65dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/bg_training_row" />
+
+            <ImageView
+                android:id="@+id/place_for_mark_image"
+                android:layout_width="44dp"
+                android:layout_height="50dp"
+                app:layout_constraintBottom_toBottomOf="@+id/training_row_image"
+                app:layout_constraintEnd_toEndOf="@+id/training_row_image"
+                app:layout_constraintHorizontal_bias="0.054"
+                app:layout_constraintStart_toStartOf="@+id/training_row_image"
+                app:layout_constraintTop_toTopOf="@+id/training_row_image"
+                app:layout_constraintVertical_bias="0.466"
+                app:srcCompat="@drawable/bg_feedback_button" />
+
+            <TextView
+                android:id="@+id/training_rating_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/markazi_text_bold"
+                android:gravity="center"
+                android:text="@string/a"
+                android:textSize="27sp"
+                app:layout_constraintBottom_toBottomOf="@+id/place_for_mark_image"
+                app:layout_constraintEnd_toEndOf="@+id/place_for_mark_image"
+                app:layout_constraintStart_toStartOf="@+id/place_for_mark_image"
+                app:layout_constraintTop_toTopOf="@+id/place_for_mark_image" />
+
+            <TextView
+                android:id="@+id/training_date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/markazi_text_medium"
+                android:text="@string/_23_06_2024"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/training_row_image"
+                app:layout_constraintHorizontal_bias="0.503"
+                app:layout_constraintStart_toStartOf="@+id/training_row_image"
+                app:layout_constraintTop_toTopOf="@+id/training_row_image"
+                app:layout_constraintVertical_bias="0.184" />
+
+            <TextView
+                android:id="@+id/training_duration_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/markazi_text_regular"
+                android:text="@string/_30_minutes"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:translationY="-4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/training_row_image"
+                app:layout_constraintEnd_toEndOf="@+id/training_row_image"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="@+id/training_row_image"
+                app:layout_constraintTop_toBottomOf="@+id/training_date_text"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/trash_image"
+                android:layout_width="23dp"
+                android:layout_height="28dp"
+                app:layout_constraintBottom_toBottomOf="@+id/training_row_image"
+                app:layout_constraintEnd_toEndOf="@+id/training_row_image"
+                app:layout_constraintHorizontal_bias="0.941"
+                app:layout_constraintStart_toEndOf="@+id/place_for_mark_image"
+                app:layout_constraintTop_toTopOf="@+id/training_row_image"
+                app:srcCompat="@drawable/ic_trash_white" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

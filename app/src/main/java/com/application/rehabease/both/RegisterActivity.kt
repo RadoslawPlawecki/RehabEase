@@ -8,9 +8,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
-import com.application.common.UserRole
-import com.application.common.BaseActivity
-import com.application.rehabease.DashboardActivity
+import com.application.enums.UserRole
+import com.application.customization.BaseActivity
+import com.application.other.DateOperations
 import com.application.rehabease.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -94,7 +94,7 @@ class RegisterActivity : BaseActivity() {
                 val authResult = FirebaseAuth.getInstance().createUserWithEmailAndPassword(login, password).await()
                 val firebaseUser = authResult.user!!
                 Log.d("RegisterActivity", "User registered: ${firebaseUser.uid}")
-                checkIfAdminExists(firebaseUser, login, name)
+                saveUserInDB(firebaseUser, login, name)
             } catch (e: Exception) {
                 Log.e("RegisterActivity", "Registration error: ${e.message}")
                 showErrorSnackBar(e.message.toString(), true)
@@ -102,16 +102,19 @@ class RegisterActivity : BaseActivity() {
         }
     }
 
-    private suspend fun checkIfAdminExists(firebaseUser: FirebaseUser, login: String, name: String) {
+    private suspend fun saveUserInDB(firebaseUser: FirebaseUser, login: String, name: String) {
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
             try {
                 val role = UserRole.USER
+                val currentDate = DateOperations.getCurrentDate()
                 val userData = hashMapOf(
                     "uid" to firebaseUser.uid,
                     "email" to login,
                     "name" to name,
-                    "role" to role
+                    "role" to role,
+                    "lastLoginDate" to currentDate,
+                    "streak" to 1
                 )
                 db.collection("users").document(firebaseUser.uid).set(userData).await()
                 Log.d("RegisterActivity", "Document added: ${firebaseUser.uid}")
@@ -120,7 +123,7 @@ class RegisterActivity : BaseActivity() {
                     false
                 )
                 FirebaseAuth.getInstance().signOut()
-                val intent = Intent(this@RegisterActivity, DashboardActivity::class.java)
+                val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                 startActivity(intent)
                 finish()
             } catch (e: Exception) {

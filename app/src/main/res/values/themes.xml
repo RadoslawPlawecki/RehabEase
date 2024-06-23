@@ -28,7 +28,7 @@
     </style>
 
     <style name="defaultEditText" parent="Widget.AppCompat.EditText">
-        <item name="background">@drawable/rounded_corner</item>
+        <item name="background">@drawable/bg_rounded_corner</item>
         <item name="fontFamily">@font/markazi_text_bold</item>
         <item name="android:textColorHint">@color/textEditColor</item>
         <item name="android:textColor">@color/black</item>

@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.application.rehabease.openAIIntegration.TipViewModel
 
 class TipActivity : AppCompatActivity() {
     private lateinit var openMenu: ImageView

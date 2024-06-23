@@ -36,7 +36,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="149dp"
         tools:ignore="MissingConstraints"
-        app:srcCompat="@drawable/image_login" />
+        app:srcCompat="@drawable/img_login" />
 
 
     <EditText
@@ -44,7 +44,7 @@
         android:layout_width="294dp"
         android:layout_height="51dp"
         android:autofillHints=""
-        android:background="@drawable/rounded_corner"
+        android:background="@drawable/bg_rounded_corner"
         android:ems="10"
         android:fontFamily="@font/markazi_text_bold"
         android:hint="@string/enter_your_mail"
@@ -70,7 +70,7 @@
         android:layout_marginBottom="20dp"
         android:autofillHints=""
         android:inputType="textPassword"
-        android:background="@drawable/rounded_corner"
+        android:background="@drawable/bg_rounded_corner"
         android:ems="10"
         android:fontFamily="@font/markazi_text_bold"
         android:text="@string/p_ssw0rd"

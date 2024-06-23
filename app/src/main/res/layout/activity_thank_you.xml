@@ -14,7 +14,7 @@
         android:layout_width="409dp"
         android:layout_height="80dp"
         android:importantForAccessibility="no"
-        android:src="@drawable/rectangle"
+        android:src="@drawable/bg_white_rectangle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,6 +62,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/thank_feedback"
         app:layout_constraintVertical_bias="0.194"
-        app:srcCompat="@drawable/image_feedback" />
+        app:srcCompat="@drawable/img_feedback" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

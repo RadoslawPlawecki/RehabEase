@@ -52,4 +52,10 @@
     <string name="enter_duration_of_the_training">Duration</string>
     <string name="submit">Submit</string>
     <string name="select_duration">Select duration</string>
+    <string name="you_ve_been_using_rehabease_for_x_days_in_a_row">You\'ve been using RehabEase for %d days in a row!</string>
+    <string name="you_ve_been_using_rehabease_for_1_day">You\'ve been using RehabEase for %d day!</string>
+    <string name="a">A+</string>
+    <string name="_23_06_2024">23/06/2024</string>
+    <string name="_30_minutes">30 minutes</string>
+    <string name="grading_system">A – rating for a training in the US scale.</string>
 </resources>

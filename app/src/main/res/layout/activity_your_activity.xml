@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:importantForAccessibility="no"
-        android:src="@drawable/orange_rectangle"
+        android:src="@drawable/bg_orange_rectangle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,13 +48,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/bars_solid" />
+        app:srcCompat="@drawable/ic_horizontal_lines_white" />
 
     <ImageView
         android:id="@+id/rectimage"
         android:layout_width="409dp"
         android:layout_height="80dp"
-        android:src="@drawable/rectangle"
+        android:src="@drawable/bg_white_rectangle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -116,7 +116,7 @@
         android:id="@+id/share_your_training_button"
         android:layout_width="310dp"
         android:layout_height="73dp"
-        android:background="@drawable/dashboard_button"
+        android:background="@drawable/bg_dashboard_button"
         android:backgroundTint="@color/shareYourTrainingDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -137,7 +137,7 @@
         app:layout_constraintStart_toEndOf="@+id/share_your_training_text"
         app:layout_constraintTop_toTopOf="@+id/share_your_training_button"
         app:layout_constraintVertical_bias="0.575"
-        app:srcCompat="@drawable/angle_down_solid" />
+        app:srcCompat="@drawable/ic_angle_down_white" />
 
     <ImageView
         android:id="@+id/angle_down_2"
@@ -151,13 +151,13 @@
         app:layout_constraintStart_toEndOf="@+id/plot_your_activity_text"
         app:layout_constraintTop_toTopOf="@+id/plot_your_activity_button"
         app:layout_constraintVertical_bias="0.575"
-        app:srcCompat="@drawable/angle_down_solid" />
+        app:srcCompat="@drawable/ic_angle_down_white" />
 
     <Button
         android:id="@+id/plot_your_activity_button"
         android:layout_width="310dp"
         android:layout_height="73dp"
-        android:background="@drawable/dashboard_button"
+        android:background="@drawable/bg_dashboard_button"
         android:backgroundTint="@color/plotYourActivityDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -176,6 +176,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rectimage"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/your_activity_image" />
+        app:srcCompat="@drawable/img_activity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

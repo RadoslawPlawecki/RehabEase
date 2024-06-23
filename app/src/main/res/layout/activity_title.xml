@@ -34,7 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.079"
-        app:srcCompat="@drawable/person_running_solid" />
+        app:srcCompat="@drawable/ic_person_running_black" />
 
     <ImageView
         android:id="@+id/title_image"
@@ -46,7 +46,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.309"
-        app:srcCompat="@drawable/image_base" />
+        app:srcCompat="@drawable/img_title" />
 
     <Button
         android:id="@+id/getting_started"

@@ -1,57 +1,58 @@
 package com.application.rehabease
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat.setBackground
+import com.application.common.ActivityUtils
 import com.application.customization.CustomSpinner
-import com.google.firebase.firestore.FirebaseFirestore
+import com.application.customization.DialogActivity
+import com.application.models.InjuryModel
+import com.application.service.InjuriesService
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class TreatmentDetailsActivity: AppCompatActivity(), CustomSpinner.OnSpinnerEventsListener {
-    private lateinit var openMenu: ImageView
+    private var injuriesService: InjuriesService = InjuriesService()
+    private var injuryModels: ArrayList<InjuryModel> = ArrayList()
     private lateinit var spinner: CustomSpinner
     private lateinit var adapter: ArrayAdapter<CharSequence>
-    private lateinit var calculateButton: Button
+    private lateinit var displayDescriptionImageView: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_treatment_details)
-        openMenu = findViewById(R.id.image_bars)
-        calculateButton = findViewById(R.id.calculate_recovery_time_button)
-        openMenu.setOnClickListener {
-            val intent = Intent(this@TreatmentDetailsActivity, MenuActivity::class.java)
-            startActivity(intent)
-        }
-        calculateButton.setOnClickListener {
-            val intent = Intent(this@TreatmentDetailsActivity, TreatmentDetailsResultActivity::class.java)
-            startActivity(intent)
-        }
+        ActivityUtils.actionBarSetup(this)
+        ActivityUtils.changeActivity<Button>(R.id.calculate_recovery_time_button, this, TreatmentDetailsResultActivity())
         spinner = findViewById(R.id.injuries)
         spinner.setSpinnerEventsListener(this)
-        fetchInjuries()
+        setupInjuryModels()
+        displayDescriptionImageView = findViewById(R.id.more_info_image)
+        displayDescriptionImageView.setOnClickListener {
+            displayInjury()
+        }
     }
 
-    private fun fetchInjuries() {
-        val db = FirebaseFirestore.getInstance()
-        db.collection("injuries")
-            .get()
-            .addOnSuccessListener { result ->
-                val injuryNames = mutableListOf<String>()
-                for (document in result) {
-                    val name = document.getString("name")
-                    if (name != null) {
-                        injuryNames.add(name)
-                    }
+    private fun setupInjuryModels() {
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+                val names = injuriesService.fetchInjuriesNames()
+                val descriptions = injuriesService.fetchInjuriesDescriptions()
+                val newInjuryModels = ArrayList<InjuryModel>()
+                for (i in 0..<names.size) {
+                    newInjuryModels.add(InjuryModel(names[i], descriptions[i]))
                 }
-                setupSpinner(injuryNames)
+                setupSpinner(names)
+                injuryModels.clear()
+                injuryModels.addAll(newInjuryModels)
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
-            .addOnFailureListener { exception ->
-                Log.w("TreatmentDetailsActivity", "Error getting documents: ", exception)
-            }
+        }
     }
 
     private fun setupSpinner(injuryNames: List<String>) {
@@ -60,11 +61,27 @@ class TreatmentDetailsActivity: AppCompatActivity(), CustomSpinner.OnSpinnerEven
         spinner.adapter = adapter
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onPopupWindowOpened(spinner: CustomSpinner) {
-        spinner.background = getDrawable(R.drawable.spinner_bg_arrow_up)
+        spinner.background = getDrawable(R.drawable.bg_spinner_arrow_up)
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onPopupWindowClosed(spinner: CustomSpinner) {
-        spinner.background = getDrawable(R.drawable.spinner_bg_arrow_down)
+        spinner.background = getDrawable(R.drawable.bg_spinner_arrow_down)
+    }
+
+    private fun displayInjury() {
+        val dialog = DialogActivity(this, R.layout.dialog_injury_description)
+        val view = dialog.getDialog()
+        val injuryNameTextView = view.findViewById<TextView>(R.id.injury_name_text)
+        val injuryDescriptionTextView = view.findViewById<TextView>(R.id.injury_description_text)
+        val selectedPosition = spinner.selectedItemPosition
+        injuryNameTextView.text = injuryModels[selectedPosition].getName()
+        injuryDescriptionTextView.text = injuryModels[selectedPosition].getDescription()
+        val returnBackButton = view.findViewById<Button>(R.id.legend_button)
+        returnBackButton.setOnClickListener {
+            dialog.closeDialog()
+        }
     }
 }
