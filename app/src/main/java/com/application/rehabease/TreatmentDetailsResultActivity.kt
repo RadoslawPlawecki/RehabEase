@@ -6,7 +6,10 @@ import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.application.customization.CustomSpinner
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -15,9 +18,17 @@ class TreatmentDetailsResultActivity : AppCompatActivity(), CustomSpinner.OnSpin
     private lateinit var spinner: CustomSpinner
     private lateinit var adapter: ArrayAdapter<CharSequence>
     private lateinit var calculateButton: Button
+    private val treatmentTimeViewModel: TreatmentTimeViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_treatment_details_result)
+
+        val TreatmentTimeTextView: TextView = findViewById(R.id.treatment_time_text)
+        treatmentTimeViewModel.TreatmentLiveData.observe(this, Observer { tip ->
+            TreatmentTimeTextView.text = tip
+        })
+        treatmentTimeViewModel.fetchTreatmentTime()
+
         openMenu = findViewById(R.id.image_bars)
         calculateButton = findViewById(R.id.calculate_recovery_time_button)
         openMenu.setOnClickListener {
