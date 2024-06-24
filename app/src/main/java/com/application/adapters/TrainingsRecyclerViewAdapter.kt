@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.application.models.TrainingModel
-import com.application.other.EvaluateTraining
+import com.application.other.AssessValues
 import com.application.rehabease.R
 
 class TrainingsRecyclerViewAdapter(private val context: Context, private val trainingModels: ArrayList<TrainingModel>, private val onDeleteCLick: (Number) -> Unit) : RecyclerView.Adapter<TrainingsRecyclerViewAdapter.MyViewHolder>() {
@@ -40,7 +40,7 @@ class TrainingsRecyclerViewAdapter(private val context: Context, private val tra
 
         @SuppressLint("SetTextI18n")
         fun bind(id: Number, rating: Number, date: String, duration: Number) {
-            ratingTextView.text = EvaluateTraining.convertToMark(rating.toDouble())
+            ratingTextView.text = AssessValues.convertToMark(rating.toDouble())
             dateTextView.text = date
             durationTextView.text = "$duration minutes"
             deleteImageView.setOnClickListener {

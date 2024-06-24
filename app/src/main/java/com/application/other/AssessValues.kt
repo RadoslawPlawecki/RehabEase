@@ -1,6 +1,9 @@
 package com.application.other
 
-object EvaluateTraining {
+import com.application.constants.ActivityComment
+import com.application.constants.ActivityCommentTitle
+
+object AssessValues {
     fun convertToMark(percentile: Double): String {
         return when {
             percentile >= 97 -> "A+"
@@ -16,6 +19,13 @@ object EvaluateTraining {
             percentile >= 63 -> "D"
             percentile >= 60 -> "D-"
             else -> "F"
+        }
+    }
+    fun evaluateActivity(duration: Double): List<String> {
+        return when {
+            duration >= 40 -> listOf(ActivityCommentTitle.titles[2], ActivityComment.comments[2])
+            duration >= 20 -> listOf(ActivityCommentTitle.titles[1], ActivityComment.comments[1])
+            else -> listOf(ActivityCommentTitle.titles[0], ActivityComment.comments[0])
         }
     }
 }

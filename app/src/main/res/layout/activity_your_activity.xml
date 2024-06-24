@@ -76,106 +76,185 @@
         app:layout_constraintTop_toTopOf="@+id/rectimage"
         app:layout_constraintVertical_bias="0.666" />
 
-    <TextView
-        android:id="@+id/plot_your_activity_text"
-        android:layout_width="228dp"
-        android:layout_height="41dp"
-        android:fontFamily="@font/markazi_text_bold"
-        android:lineSpacingMultiplier="0.8"
-        android:text="@string/plot_your_activity"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="32sp"
-        android:translationZ="90dp"
-        app:layout_constraintBottom_toBottomOf="@+id/plot_your_activity_button"
-        app:layout_constraintEnd_toEndOf="@+id/plot_your_activity_button"
-        app:layout_constraintHorizontal_bias="0.182"
-        app:layout_constraintStart_toStartOf="@+id/plot_your_activity_button"
-        app:layout_constraintTop_toTopOf="@+id/plot_your_activity_button"
-        app:layout_constraintVertical_bias="0.531" />
-
-    <TextView
-        android:id="@+id/share_your_training_text"
-        android:layout_width="228dp"
-        android:layout_height="41dp"
-        android:fontFamily="@font/markazi_text_bold"
-        android:lineSpacingMultiplier="0.8"
-        android:text="@string/share_your_training"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="32sp"
-        android:translationZ="90dp"
-        app:layout_constraintBottom_toBottomOf="@+id/share_your_training_button"
-        app:layout_constraintEnd_toEndOf="@+id/share_your_training_button"
-        app:layout_constraintHorizontal_bias="0.182"
-        app:layout_constraintStart_toStartOf="@+id/share_your_training_button"
-        app:layout_constraintTop_toTopOf="@+id/share_your_training_button"
-        app:layout_constraintVertical_bias="0.531" />
-
-    <Button
-        android:id="@+id/share_your_training_button"
-        android:layout_width="310dp"
-        android:layout_height="73dp"
-        android:background="@drawable/bg_dashboard_button"
-        android:backgroundTint="@color/shareYourTrainingDark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rectimage"
-        app:layout_constraintVertical_bias="0.651" />
-
-    <ImageView
-        android:id="@+id/angle_down_1"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="10dp"
-        android:translationZ="90dp"
-        app:layout_constraintBottom_toBottomOf="@+id/share_your_training_button"
-        app:layout_constraintEnd_toEndOf="@+id/share_your_training_button"
-        app:layout_constraintHorizontal_bias="0.432"
-        app:layout_constraintStart_toEndOf="@+id/share_your_training_text"
-        app:layout_constraintTop_toTopOf="@+id/share_your_training_button"
-        app:layout_constraintVertical_bias="0.575"
-        app:srcCompat="@drawable/ic_angle_down_white" />
-
-    <ImageView
-        android:id="@+id/angle_down_2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="10dp"
-        android:translationZ="90dp"
-        app:layout_constraintBottom_toBottomOf="@+id/plot_your_activity_button"
-        app:layout_constraintEnd_toEndOf="@+id/plot_your_activity_button"
-        app:layout_constraintHorizontal_bias="0.432"
-        app:layout_constraintStart_toEndOf="@+id/plot_your_activity_text"
-        app:layout_constraintTop_toTopOf="@+id/plot_your_activity_button"
-        app:layout_constraintVertical_bias="0.575"
-        app:srcCompat="@drawable/ic_angle_down_white" />
-
-    <Button
-        android:id="@+id/plot_your_activity_button"
-        android:layout_width="310dp"
-        android:layout_height="73dp"
-        android:background="@drawable/bg_dashboard_button"
-        android:backgroundTint="@color/plotYourActivityDark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/share_your_training_button"
-        app:layout_constraintVertical_bias="0.287" />
-
-    <ImageView
-        android:id="@+id/imageView3"
+    <com.androidplot.xy.XYPlot
+        android:id="@+id/activity_plot"
+        style="@style/customPlot"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/share_your_training_button"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rectimage"
+        app:layout_constraintVertical_bias="0.455"
+        app:lineLabels="left|bottom" />
+
+    <TextView
+        android:id="@+id/x_label_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/markazi_text_medium"
+        android:gravity="center"
+        android:lineSpacingMultiplier="0.9"
+        android:text="Last 7 days"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_plot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/activity_plot"
+        app:layout_constraintVertical_bias="0.899" />
+
+    <TextView
+        android:id="@+id/y_label_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="244dp"
+        android:fontFamily="@font/markazi_text_medium"
+        android:rotation="-90"
+        android:lineSpacingMultiplier="0.9"
+        android:text="Activity [mins]"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_plot"
+        app:layout_constraintEnd_toEndOf="@+id/activity_plot"
+        app:layout_constraintTop_toTopOf="@+id/activity_plot"
+        app:layout_constraintVertical_bias="0.43" />
+
+    <TextView
+        android:id="@+id/display_activity_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="516dp"
+        android:fontFamily="@font/markazi_text_semibold"
+        android:gravity="center"
+        android:lineSpacingMultiplier="0.9"
+        android:text="Display activity from last:"
+        android:textSize="28sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rectimage"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/img_activity" />
+        app:layout_constraintVertical_bias="0.857" />
+
+    <EditText
+        android:id="@+id/activity_from_last_x_days_input"
+        android:layout_width="240dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_rounded_rectangle"
+        android:backgroundTint="@color/white"
+        android:clickable="true"
+        android:ems="10"
+        android:focusable="false"
+        android:fontFamily="@font/markazi_text_bold"
+        android:hint="Number of days"
+        android:inputType="none"
+        android:textColor="@color/simpleTextColor"
+        android:textColorHint="@color/textEditColor"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/display_activity_text"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/refresh_plot"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_from_last_x_days_input"
+        app:layout_constraintEnd_toEndOf="@+id/activity_from_last_x_days_input"
+        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintStart_toStartOf="@+id/activity_from_last_x_days_input"
+        app:layout_constraintTop_toTopOf="@+id/activity_from_last_x_days_input"
+        app:layout_constraintVertical_bias="0.533"
+        app:srcCompat="@drawable/ic_reload" />
+
+    <ProgressBar
+        android:id="@+id/external_progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:indeterminateDuration="1000"
+        android:indeterminateTint="@color/colorPrimaryDark"
+        android:rotation="180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rectimage"
+        app:layout_constraintVertical_bias="0.37" />
+
+    <ProgressBar
+        android:id="@+id/internal_progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:indeterminateDuration="100"
+        android:indeterminateTint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rectimage"
+        app:layout_constraintVertical_bias="0.383" />
+
+    <TextView
+        android:id="@+id/loading_data_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/markazi_text_medium"
+        android:gravity="center"
+        android:text="Loading data..."
+        android:textColor="@color/simpleTextColor"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/external_progress_bar"
+        app:layout_constraintVertical_bias="0.029" />
+
+    <TextView
+        android:id="@+id/activity_comment_title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:fontFamily="@font/markazi_text_semibold"
+        android:gravity="center"
+        android:text="Excellent work!"
+        android:textSize="34sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/x_label_text"
+        app:layout_constraintVertical_bias="0.236" />
+
+    <TextView
+        android:id="@+id/activity_comment_text"
+        android:layout_width="321dp"
+        android:layout_height="88dp"
+        android:fontFamily="@font/markazi_text_regular"
+        android:gravity="center"
+        android:text="You are dedicated to your recovery and it shows. Keep pushing yourself, but also listen to your body and rest when needed. You are doing great, and your efforts are paying off!"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_comment_title_text"
+        app:layout_constraintVertical_bias="0.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
