@@ -35,8 +35,10 @@
     <activity
         android:name=".both.LoginActivity"
         android:exported="true" />
+    <activity android:name=".admin.DashboardActivityAdmin"
+        android:exported="true" />
     <activity
-        android:name=".DashboardActivity"
+        android:name=".user.DashboardActivityUser"
         android:exported="true" />
     <activity
         android:name=".TipActivity"
@@ -45,16 +47,22 @@
         android:name=".ThankYouActivity"
         android:exported="true" />
     <activity
-        android:name=".TreatmentDetailsActivity"
+        android:name=".admin.TreatmentDetailsActivityAdmin"
         android:exported="true" />
     <activity
-        android:name=".TreatmentDetailsResultActivity"
+        android:name=".user.TreatmentDetailsActivityUser"
+        android:exported="true" />
+    <activity
+        android:name=".user.TreatmentDetailsResultActivity"
         android:exported="true" />
     <activity
         android:name=".YourActivityActivity"
         android:exported="true" />
     <activity
-        android:name=".AdjustExerciseActivity"
+        android:name=".admin.AdjustExerciseActivityAdmin"
+        android:exported="true" />
+    <activity
+        android:name=".user.AdjustExerciseActivityUser"
         android:exported="true" />
     <activity
         android:name=".TrainingEvaluationActivity"

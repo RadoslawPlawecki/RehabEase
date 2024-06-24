@@ -10,9 +10,9 @@ import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import com.application.enums.UserRole
 import com.application.customization.BaseActivity
-import com.application.rehabease.DashboardActivity
+import com.application.rehabease.user.DashboardActivityUser
 import com.application.rehabease.R
-import com.application.rehabease.YourActivityActivity
+import com.application.rehabease.admin.DashboardActivityAdmin
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.launch
@@ -92,11 +92,11 @@ class LoginActivity : BaseActivity() {
                     val role = document.getString("role")
                     when (role) {
                         UserRole.ADMIN.toString() -> {
-                            val intent = Intent(this@LoginActivity, DashboardActivity::class.java)
+                            val intent = Intent(this@LoginActivity, DashboardActivityAdmin::class.java)
                             startActivity(intent)
                         }
                         UserRole.USER.toString() -> {
-                            val intent = Intent(this@LoginActivity, YourActivityActivity::class.java)
+                            val intent = Intent(this@LoginActivity, DashboardActivityUser::class.java)
                             startActivity(intent)
                         }
                         else -> {

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".DashboardActivity">
+    tools:context=".user.DashboardActivityUser">
 
     <Button
         android:id="@+id/button_your_activity"

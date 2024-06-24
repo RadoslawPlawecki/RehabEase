@@ -1,7 +1,6 @@
-package com.application.rehabease
+package com.application.rehabease.admin
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -9,6 +8,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.application.common.ActivityUtils
 import com.application.other.DateOperations
+import com.application.rehabease.R
+import com.application.rehabease.TipActivity
+import com.application.rehabease.TrainingEvaluationActivity
+import com.application.rehabease.user.TreatmentDetailsActivityUser
+import com.application.rehabease.YourActivityActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.CoroutineScope
@@ -17,19 +21,19 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
-class DashboardActivity : AppCompatActivity() {
+class DashboardActivityAdmin : AppCompatActivity() {
     private lateinit var helloTextView: TextView
     private lateinit var daysOfUseTextView: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dashboard)
+        setContentView(R.layout.activity_dashboard_admin)
         helloTextView = findViewById(R.id.hello)
         daysOfUseTextView = findViewById(R.id.days_of_use)
         ActivityUtils.actionBarSetup(this)
         ActivityUtils.changeActivity<ImageView>(R.id.tip_image, this, TipActivity())
-        ActivityUtils.changeActivity<Button>(R.id.button_treatment_details, this, TreatmentDetailsActivity())
+        ActivityUtils.changeActivity<Button>(R.id.button_treatment_details, this, TreatmentDetailsActivityAdmin())
         ActivityUtils.changeActivity<Button>(R.id.button_your_activity, this, YourActivityActivity())
-        ActivityUtils.changeActivity<Button>(R.id.button_adjust_exercise, this, AdjustExerciseActivity())
+        ActivityUtils.changeActivity<Button>(R.id.button_adjust_exercise, this, AdjustExerciseActivityAdmin())
         ActivityUtils.changeActivity<Button>(R.id.button_training_evaluation, this, TrainingEvaluationActivity())
         CoroutineScope(Dispatchers.Main).launch {
             helloUser()

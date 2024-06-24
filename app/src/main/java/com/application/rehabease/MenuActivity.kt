@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.application.rehabease.both.LoginActivity
+import com.application.rehabease.user.DashboardActivityUser
 
 class MenuActivity : AppCompatActivity() {
     private lateinit var goToHomeImage: ImageView
@@ -40,7 +41,7 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private fun goToHome(): View.OnClickListener {
-        val intent = Intent(this@MenuActivity, DashboardActivity::class.java)
+        val intent = Intent(this@MenuActivity, DashboardActivityUser::class.java)
         val clickListener = View.OnClickListener {
             startActivity(intent)
         }

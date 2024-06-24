@@ -1,15 +1,14 @@
-package com.application.rehabease
+package com.application.rehabease.user
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.application.common.ActivityUtils
+import com.application.rehabease.R
 
-class AdjustExerciseActivity : AppCompatActivity() {
+class AdjustExerciseActivityUser : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_adjust_exercise)
+        setContentView(R.layout.activity_adjust_exercise_user)
         ActivityUtils.actionBarSetup(this)
     }
 }

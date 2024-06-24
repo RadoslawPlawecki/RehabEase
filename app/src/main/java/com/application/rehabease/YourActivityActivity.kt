@@ -105,13 +105,16 @@ class YourActivityActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     private fun generatePlot(returnBack: Number) {
         val domainLabels = DateOperations.getDatesFromCurrent(returnBack)
+        val durationMap = mutableMapOf<String, Int>()
+        for (i in trainingDates.indices) {
+            val date = trainingDates[i]
+            val duration = trainingDurations[i].toInt()
+            durationMap[date] = durationMap.getOrDefault(date, 0) + duration
+        }
         val seriesNumber = ArrayList<Number>()
-        for (i in 0 until domainLabels.size) {
-            if (trainingDates.contains(domainLabels[i])) {
-                seriesNumber.add(trainingDurations[trainingDates.indexOf(domainLabels[i])])
-            } else {
-                seriesNumber.add(0)
-            }
+        for (label in domainLabels) {
+            val duration = durationMap.getOrDefault(label, 0)
+            seriesNumber.add(duration)
         }
         val series : XYSeries = SimpleXYSeries(seriesNumber, SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "")
         // format the series

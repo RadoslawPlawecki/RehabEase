@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".user.DashboardActivityUser">
+
+    <Button
+        android:id="@+id/button_your_activity"
+        android:layout_width="140dp"
+        android:layout_height="160dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/bg_dashboard_button"
+        android:backgroundTint="@color/yourActivity"
+        app:layout_constraintBottom_toTopOf="@+id/button_training_evaluation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rectimage"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/image_adjust_exercise"
+        android:layout_width="57dp"
+        android:layout_height="66dp"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_adjust_exercise"
+        app:layout_constraintEnd_toEndOf="@+id/button_adjust_exercise"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="@+id/button_adjust_exercise"
+        app:layout_constraintTop_toBottomOf="@+id/text_adjust_exercise"
+        app:layout_constraintVertical_bias="0.071"
+        app:srcCompat="@drawable/ic_hand_holding_droplet_white" />
+
+    <TextView
+        android:id="@+id/text_your_activity"
+        android:layout_width="99dp"
+        android:layout_height="55dp"
+        android:fontFamily="@font/markazi_text_bold"
+        android:lineSpacingMultiplier="0.8"
+        android:text="@string/your_activity"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="27sp"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_your_activity"
+        app:layout_constraintEnd_toEndOf="@+id/button_your_activity"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="@+id/button_your_activity"
+        app:layout_constraintTop_toTopOf="@+id/button_your_activity"
+        app:layout_constraintVertical_bias="0.171" />
+
+    <ImageView
+        android:id="@+id/image_trainig_evaluation"
+        android:layout_width="57dp"
+        android:layout_height="66dp"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_training_evaluation"
+        app:layout_constraintEnd_toEndOf="@+id/button_training_evaluation"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="@+id/button_training_evaluation"
+        app:layout_constraintTop_toBottomOf="@+id/text_training_evaluation"
+        app:layout_constraintVertical_bias="0.071"
+        app:srcCompat="@drawable/ic_marker_white" />
+
+    <TextView
+        android:id="@+id/text_treatment_details"
+        android:layout_width="99dp"
+        android:layout_height="55dp"
+        android:fontFamily="@font/markazi_text_bold"
+        android:lineSpacingMultiplier="0.8"
+        android:text="@string/treatment_details"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="27sp"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_treatment_details"
+        app:layout_constraintEnd_toEndOf="@+id/button_treatment_details"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="@+id/button_treatment_details"
+        app:layout_constraintTop_toTopOf="@+id/button_treatment_details"
+        app:layout_constraintVertical_bias="0.171" />
+
+    <Button
+        android:id="@+id/button_adjust_exercise"
+        android:layout_width="140dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginBottom="92dp"
+        android:background="@drawable/bg_dashboard_button"
+        android:backgroundTint="@color/adjustExercise"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_training_evaluation"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rectimage"
+        app:layout_constraintVertical_bias="0.912" />
+
+    <Button
+        android:id="@+id/button_training_evaluation"
+        android:layout_width="140dp"
+        android:layout_height="160dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="92dp"
+        android:background="@drawable/bg_dashboard_button"
+        android:backgroundTint="@color/trainingEvaluation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rectimage"
+        app:layout_constraintVertical_bias="0.909" />
+
+    <Button
+        android:id="@+id/button_treatment_details"
+        android:layout_width="140dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/bg_dashboard_button"
+        android:backgroundTint="@color/treatmentDetails"
+        app:layout_constraintBottom_toTopOf="@+id/button_adjust_exercise"
+        app:layout_constraintEnd_toStartOf="@+id/button_your_activity"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rectimage"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/image_treatment_details"
+        android:layout_width="57dp"
+        android:layout_height="66dp"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_treatment_details"
+        app:layout_constraintEnd_toEndOf="@+id/button_treatment_details"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="@+id/button_treatment_details"
+        app:layout_constraintTop_toBottomOf="@+id/text_treatment_details"
+        app:layout_constraintVertical_bias="0.071"
+        app:srcCompat="@drawable/ic_notes_medical" />
+
+    <TextView
+        android:id="@+id/text_adjust_exercise"
+        android:layout_width="99dp"
+        android:layout_height="55dp"
+        android:fontFamily="@font/markazi_text_bold"
+        android:lineSpacingMultiplier="0.8"
+        android:text="@string/adjust_exercise"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="27sp"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_adjust_exercise"
+        app:layout_constraintEnd_toEndOf="@+id/button_adjust_exercise"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="@+id/button_adjust_exercise"
+        app:layout_constraintTop_toTopOf="@+id/button_adjust_exercise"
+        app:layout_constraintVertical_bias="0.171" />
+
+    <TextView
+        android:id="@+id/text_training_evaluation"
+        android:layout_width="99dp"
+        android:layout_height="55dp"
+        android:fontFamily="@font/markazi_text_bold"
+        android:lineSpacingMultiplier="0.8"
+        android:text="Training evaluation"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_training_evaluation"
+        app:layout_constraintEnd_toEndOf="@+id/button_training_evaluation"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="@+id/button_training_evaluation"
+        app:layout_constraintTop_toTopOf="@+id/button_training_evaluation"
+        app:layout_constraintVertical_bias="0.171" />
+
+    <ImageView
+        android:id="@+id/image_your_activity"
+        android:layout_width="57dp"
+        android:layout_height="66dp"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_your_activity"
+        app:layout_constraintEnd_toEndOf="@+id/button_your_activity"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="@+id/button_your_activity"
+        app:layout_constraintTop_toBottomOf="@+id/text_your_activity"
+        app:layout_constraintVertical_bias="0.071"
+        app:srcCompat="@drawable/ic_list_check_white" />
+
+    <ImageView
+        android:id="@+id/orange_rect"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/bg_orange_rectangle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/rectimage"
+        android:layout_width="409dp"
+        android:layout_height="125dp"
+        android:src="@drawable/bg_white_rectangle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orange_rect"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:fontFamily="@font/markazi_text_bold"
+        android:text="Hello XYZ!"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rectimage"
+        app:layout_constraintEnd_toStartOf="@+id/tip"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rectimage"
+        app:layout_constraintVertical_bias="0.258" />
+
+    <TextView
+        android:id="@+id/days_of_use"
+        android:layout_width="225dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="36dp"
+        android:text="@string/you_ve_been_using_rehabease_for_1_day"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/rectimage"
+        app:layout_constraintEnd_toStartOf="@+id/tip"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hello"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/tip_image"
+        android:layout_width="88dp"
+        android:layout_height="78dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rectimage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.996"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.851"
+        app:srcCompat="@drawable/img_light_bulb" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/markazi_text_bold"
+        android:gravity="center"
+        android:text="@string/rehabease"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="@+id/orange_rect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/orange_rect" />
+
+    <ImageView
+        android:id="@+id/image_bars"
+        android:layout_width="31dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/orange_rect"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_horizontal_lines_white" />
+</androidx.constraintlayout.widget.ConstraintLayout>

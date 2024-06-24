@@ -5,17 +5,17 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 
 class InjuriesService {
-    suspend fun fetchInjuriesNames(): ArrayList<String> {
-        val injuryNames = ArrayList<String>()
+    suspend fun fetchInjuryDetails(field: String): ArrayList<String> {
+        val injuryDetails = ArrayList<String>()
         val db = FirebaseFirestore.getInstance()
         val injuriesRef = db.collection("injuries").orderBy("id")
         try {
             val documentSnapshot = injuriesRef.get().await()
             if (!documentSnapshot.isEmpty) {
                 for (document in documentSnapshot.documents) {
-                    val injuryName = document.getString("name")
-                    injuryName?.let {
-                        injuryNames.add(it)
+                    val detail = document.getString(field)
+                    detail?.let {
+                        injuryDetails.add(it)
                     }
                 }
             } else {
@@ -24,27 +24,40 @@ class InjuriesService {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-        return injuryNames
+        return injuryDetails
     }
-    suspend fun fetchInjuriesDescriptions(): ArrayList<String> {
-        val injuryDescriptions = ArrayList<String>()
+
+    suspend fun addInjury(name: String, description: String) {
         val db = FirebaseFirestore.getInstance()
-        val injuriesRef = db.collection("injuries").orderBy("id")
+        val exercisesRef = db.collection("injuries")
+        val exercise = hashMapOf(
+            "name" to name,
+            "description" to description
+        )
         try {
-            val documentSnapshot = injuriesRef.get().await()
-            if (!documentSnapshot.isEmpty) {
-                for (document in documentSnapshot.documents) {
-                    val injuryDescription = document.getString("description")
-                    injuryDescription?.let {
-                        injuryDescriptions.add(it)
-                    }
+            exercisesRef.add(exercise).await()
+            Log.d("InjuriesService", "Injury added successfully!")
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Log.e("InjuriesService", "Error adding injury: ${e.message}")
+        }
+    }
+
+    suspend fun removeInjury(injuryName: String) {
+        val db = FirebaseFirestore.getInstance()
+        val activitiesRef = db.collection("injuries")
+        try {
+            val querySnapshot = activitiesRef.whereEqualTo("name", injuryName).get().await()
+            if (!querySnapshot.isEmpty) {
+                for (document in querySnapshot.documents) {
+                    document.reference.delete().await()
+                    Log.d("InjuriesService", "Injury removed successfully!")
                 }
             } else {
-                Log.e("InjuriesService", "The document is empty!")
+                Log.e("InjuriesService", "No injury found with the given name")
             }
         } catch (e: Exception) {
             e.printStackTrace()
         }
-        return injuryDescriptions
     }
 }

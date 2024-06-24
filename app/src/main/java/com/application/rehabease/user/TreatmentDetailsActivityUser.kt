@@ -1,4 +1,4 @@
-package com.application.rehabease
+package com.application.rehabease.user
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -6,37 +6,28 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import com.application.common.ActivityUtils
 import com.application.customization.CustomSpinner
 import com.application.customization.DialogActivity
 import com.application.models.InjuryModel
-import com.application.rehabease.openAIIntegration.TreatmentTimeViewModel
+import com.application.rehabease.R
 import com.application.service.InjuriesService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class TreatmentDetailsResultActivity : AppCompatActivity(), CustomSpinner.OnSpinnerEventsListener {
+class TreatmentDetailsActivityUser: AppCompatActivity(), CustomSpinner.OnSpinnerEventsListener {
     private var injuriesService: InjuriesService = InjuriesService()
     private var injuryModels: ArrayList<InjuryModel> = ArrayList()
-    private lateinit var displayDescriptionImageView: ImageView
     private lateinit var spinner: CustomSpinner
     private lateinit var adapter: ArrayAdapter<CharSequence>
-    private lateinit var calculateButton: Button
-    private val treatmentTimeViewModel: TreatmentTimeViewModel by viewModels()
+    private lateinit var displayDescriptionImageView: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_treatment_details_result)
+        setContentView(R.layout.activity_treatment_details_user)
         ActivityUtils.actionBarSetup(this)
-        val TreatmentTimeTextView: TextView = findViewById(R.id.treatment_time_text)
-        treatmentTimeViewModel.TreatmentLiveData.observe(this, Observer { tip ->
-            TreatmentTimeTextView.text = tip
-        })
-        treatmentTimeViewModel.fetchTreatmentTime()
-        calculateButton = findViewById(R.id.calculate_recovery_time_button)
+        ActivityUtils.changeActivity<Button>(R.id.calculate_recovery_time_button, this, TreatmentDetailsResultActivity())
         spinner = findViewById(R.id.injuries)
         spinner.setSpinnerEventsListener(this)
         setupInjuryModels()
@@ -49,8 +40,8 @@ class TreatmentDetailsResultActivity : AppCompatActivity(), CustomSpinner.OnSpin
     private fun setupInjuryModels() {
         CoroutineScope(Dispatchers.Main).launch {
             try {
-                val names = injuriesService.fetchInjuriesNames()
-                val descriptions = injuriesService.fetchInjuriesDescriptions()
+                val names = injuriesService.fetchInjuryDetails("name")
+                val descriptions = injuriesService.fetchInjuryDetails("description")
                 val newInjuryModels = ArrayList<InjuryModel>()
                 for (i in 0..<names.size) {
                     newInjuryModels.add(InjuryModel(names[i], descriptions[i]))
