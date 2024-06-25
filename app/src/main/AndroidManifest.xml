@@ -63,6 +63,9 @@
         android:name=".admin.AdjustExerciseActivityAdmin"
         android:exported="true" />
     <activity
+        android:name=".user.AdjustExerciseFeedbackSubmitActivityUser"
+        android:exported="true" />
+    <activity
         android:name=".user.AdjustExerciseActivityUser"
         android:exported="true" />
     <activity

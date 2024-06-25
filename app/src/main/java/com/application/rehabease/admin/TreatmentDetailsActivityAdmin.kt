@@ -19,6 +19,7 @@ import com.application.adapters.InjuriesRecyclerViewAdapter
 import com.application.common.ActivityUtils
 import com.application.customization.DialogActivity
 import com.application.models.InjuryModel
+import com.application.other.StringOperations
 import com.application.rehabease.R
 import com.application.service.InjuriesService
 import kotlinx.coroutines.CoroutineScope
@@ -58,17 +59,21 @@ class TreatmentDetailsActivityAdmin: AppCompatActivity() {
         submitButton.setOnClickListener {
             val injuryName = injuryNameEditText.text.toString()
             val injuryDescription = injuryDescriptionEditText.text.toString()
-            if (checkIfInjuryAlreadyExists(injuryName)) {
-                CoroutineScope(Dispatchers.Main).launch {
-                    injuriesService.addInjury(injuryName, injuryDescription)
-                }
-                adapter.addItem(injuryName, injuryDescription)
-                Toast.makeText(this, "Added successfully!", Toast.LENGTH_SHORT).show()
-                dialog.closeDialog()
-            } else {
-                Toast.makeText(this, "The injury already exists!", Toast.LENGTH_SHORT).show()
-                dialog.closeDialog()
+            if (StringOperations.checkIfEmpty(injuryName, injuryDescription)) {
+                Toast.makeText(this, "Enter valid injury details!", Toast.LENGTH_SHORT).show()
             }
+                else {
+                    if (checkIfInjuryAlreadyExists(injuryName)) {
+                        CoroutineScope(Dispatchers.Main).launch {
+                            injuriesService.addInjury(injuryName, injuryDescription)
+                        }
+                        adapter.addItem(injuryName, injuryDescription)
+                        Toast.makeText(this, "Added successfully!", Toast.LENGTH_SHORT).show()
+                        dialog.closeDialog()
+                    } else {
+                        Toast.makeText(this, "The injury already exists!", Toast.LENGTH_SHORT).show()
+                    }
+                }
         }
     }
 
@@ -140,7 +145,7 @@ class TreatmentDetailsActivityAdmin: AppCompatActivity() {
     private fun checkIfInjuryAlreadyExists(injuryName: String): Boolean {
         var injuryNotExists = true
         for (i in 0..<injuryModels.size) {
-            if (injuryName.lowercase() == injuryModels[i].getName().lowercase()) {
+            if (injuryName.trim().lowercase() == injuryModels[i].getName().trim().lowercase()) {
                 injuryNotExists = false
             }
         }
