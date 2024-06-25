@@ -36,6 +36,8 @@ android {
 }
 
 dependencies {
+    implementation ("com.google.firebase:firebase-messaging:21.0.1")
+    implementation ("androidx.work:work-runtime-ktx:2.7.1")
     implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
     implementation("com.google.firebase:firebase-analytics")
     implementation ("com.google.code.gson:gson:2.8.5")
