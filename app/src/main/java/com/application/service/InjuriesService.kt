@@ -8,7 +8,7 @@ class InjuriesService {
     suspend fun fetchInjuryDetails(field: String): ArrayList<String> {
         val injuryDetails = ArrayList<String>()
         val db = FirebaseFirestore.getInstance()
-        val injuriesRef = db.collection("injuries").orderBy("id")
+        val injuriesRef = db.collection("injuries")
         try {
             val documentSnapshot = injuriesRef.get().await()
             if (!documentSnapshot.isEmpty) {

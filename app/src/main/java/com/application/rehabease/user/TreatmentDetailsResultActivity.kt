@@ -1,6 +1,5 @@
 package com.application.rehabease.user
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -14,7 +13,7 @@ import com.application.customization.CustomSpinner
 import com.application.customization.DialogActivity
 import com.application.models.InjuryModel
 import com.application.rehabease.R
-import com.application.rehabease.openAIIntegration.TreatmentTimeViewModel
+import com.application.rehabease.ServiceOpenAIAPI.TreatmentTimeViewModel
 import com.application.service.InjuriesService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -28,23 +27,28 @@ class TreatmentDetailsResultActivity : AppCompatActivity(), CustomSpinner.OnSpin
     private lateinit var adapter: ArrayAdapter<CharSequence>
     private lateinit var calculateButton: Button
     private val treatmentTimeViewModel: TreatmentTimeViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_treatment_details_user_result)
         ActivityUtils.actionBarSetup(this)
-        val TreatmentTimeTextView: TextView = findViewById(R.id.treatment_time_text)
+
+        val treatmentTimeTextView: TextView = findViewById(R.id.treatment_time_text)
         treatmentTimeViewModel.TreatmentLiveData.observe(this, Observer { tip ->
-            TreatmentTimeTextView.text = tip
+            treatmentTimeTextView.text = tip
         })
-        treatmentTimeViewModel.fetchTreatmentTime()
+
+        val selectedInjury = intent.getStringExtra("selected_injury") ?: ""
+        val age = intent.getIntExtra("age", 0)
+        treatmentTimeViewModel.fetchTreatmentTime(selectedInjury, age)
+
         calculateButton = findViewById(R.id.calculate_recovery_time_button)
         spinner = findViewById(R.id.injuries)
         spinner.setSpinnerEventsListener(this)
         setupInjuryModels()
+
         displayDescriptionImageView = findViewById(R.id.more_info_image)
-        displayDescriptionImageView.setOnClickListener {
-            displayInjury()
-        }
+        displayDescriptionImageView.setOnClickListener { displayInjury() }
     }
 
     private fun setupInjuryModels() {
@@ -53,7 +57,7 @@ class TreatmentDetailsResultActivity : AppCompatActivity(), CustomSpinner.OnSpin
                 val names = injuriesService.fetchInjuryDetails("name")
                 val descriptions = injuriesService.fetchInjuryDetails("description")
                 val newInjuryModels = ArrayList<InjuryModel>()
-                for (i in 0..<names.size) {
+                for (i in names.indices) {
                     newInjuryModels.add(InjuryModel(names[i], descriptions[i]))
                 }
                 setupSpinner(names)
@@ -71,12 +75,10 @@ class TreatmentDetailsResultActivity : AppCompatActivity(), CustomSpinner.OnSpin
         spinner.adapter = adapter
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onPopupWindowOpened(spinner: CustomSpinner) {
         spinner.background = getDrawable(R.drawable.bg_spinner_arrow_up)
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onPopupWindowClosed(spinner: CustomSpinner) {
         spinner.background = getDrawable(R.drawable.bg_spinner_arrow_down)
     }
@@ -90,8 +92,6 @@ class TreatmentDetailsResultActivity : AppCompatActivity(), CustomSpinner.OnSpin
         injuryNameTextView.text = injuryModels[selectedPosition].getName()
         injuryDescriptionTextView.text = injuryModels[selectedPosition].getDescription()
         val returnBackButton = view.findViewById<Button>(R.id.legend_button)
-        returnBackButton.setOnClickListener {
-            dialog.closeDialog()
-        }
+        returnBackButton.setOnClickListener { dialog.closeDialog() }
     }
 }

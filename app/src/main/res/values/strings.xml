@@ -29,11 +29,10 @@
     <string name="tip_of_the_day">Tip of the day!</string>
     <string name="tip_of_the_day_loading">Loading Tip of the Day...</string>
     <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_nulla_dolor_nunc_tincidunt_vel_auctor_eu_suscipit_et_libero_etiam_venenatis_elementum_ipsum_vitae_volutpat_erat_mattis_in_etiam_a_velit_lacinia_lobortis_neque_vel_posuere_velit_quisque_auctor_tellus_libero_a_ornare_tortor_rhoncus_a_phasellus_eget_volutpat_mauris_suspendisse_hendrerit_quam_maximus_nisi_rutrum_pellentesque_etiam_malesuada_libero_eget_aliquet_efficitur_integer_mattis_venenatis_odio_etiam_neque_ipsum_blandit_vitae_velit_egestas_imperdiet_dictum_mi_ut_consectetur_ut_tellus_vel_efficitur">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dolor nunc, tincidunt vel auctor eu, suscipit et libero. Etiam venenatis elementum ipsum, vitae volutpat erat mattis in. Etiam a velit lacinia, lobortis neque vel, posuere velit. Quisque auctor tellus libero, a ornare tortor rhoncus a. Phasellus eget volutpat mauris. Suspendisse hendrerit quam maximus nisi rutrum pellentesque. Etiam malesuada libero eget aliquet efficitur. Integer mattis venenatis odio. Etiam neque ipsum, blandit vitae velit egestas, imperdiet dictum mi. Ut consectetur ut tellus vel efficitur.</string>
-    <string name="how_do_you_rate_it">How do you rate it?</string>
+    <string name="how_do_you_rate_it">How would you rate it?</string>
     <string name="bad">Bad</string>
     <string name="decent">Decent</string>
     <string name="good">Good</string>
-    <string name="thank_you_for_your_feedback">Thank you for your feedback!</string>
     <string name="your_injury">Your injury</string>
     <string name="age">Age</string>
     <string name="calculate_recovery_time">Calculate recovery time</string>
@@ -58,4 +57,6 @@
     <string name="_23_06_2024">23/06/2024</string>
     <string name="_30_minutes">30 minutes</string>
     <string name="grading_system">A – rating for a training in the US scale.</string>
+    <string name="thank_you_for_your_feedback">Thank you for your feedback!</string>
+    <string name="already_rated_message">Tip already rated today!</string>
 </resources>
