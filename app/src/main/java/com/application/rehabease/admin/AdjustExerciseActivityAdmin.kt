@@ -19,6 +19,7 @@ import com.application.adapters.ExercisesRecyclerViewAdapter
 import com.application.common.ActivityUtils
 import com.application.customization.DialogActivity
 import com.application.models.ExerciseModel
+import com.application.other.StringOperations
 import com.application.rehabease.R
 import com.application.service.ExercisesService
 import kotlinx.coroutines.CoroutineScope
@@ -65,16 +66,20 @@ class AdjustExerciseActivityAdmin : AppCompatActivity() {
             val exerciseRepetitions = exerciseRepetitionsEditText.text.toString()
             val exerciseCycles = exerciseCyclesEditText.text.toString()
             val exerciseRepetitionTime = exerciseRepetitionTimeEditText.text.toString()
-            if (checkIfExerciseAlreadyExists(exerciseName)) {
-                CoroutineScope(Dispatchers.Main).launch {
-                    exercisesService.addExercise(exerciseName, exerciseDescription, exerciseRepetitions, exerciseCycles, exerciseRepetitionTime)
-                }
-                adapter.addItem(exerciseName, exerciseDescription, exerciseRepetitions.toInt(), exerciseCycles.toInt(), exerciseRepetitionTime.toInt())
-                Toast.makeText(this, "Added successfully!", Toast.LENGTH_SHORT).show()
-                dialog.closeDialog()
+            if (StringOperations.checkIfEmpty(exerciseName, exerciseDescription, exerciseRepetitions, exerciseCycles, exerciseRepetitionTime)) {
+                Toast.makeText(this, "Enter valid exercise details!", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "The exercise already exists!", Toast.LENGTH_SHORT).show()
-                dialog.closeDialog()
+                if (checkIfExerciseAlreadyExists(exerciseName)) {
+                    CoroutineScope(Dispatchers.Main).launch {
+                        exercisesService.addExercise(exerciseName, exerciseDescription, exerciseRepetitions, exerciseCycles, exerciseRepetitionTime)
+                    }
+                    adapter.addItem(exerciseName, exerciseDescription, exerciseRepetitions.toInt(), exerciseCycles.toInt(), exerciseRepetitionTime.toInt())
+                    Toast.makeText(this, "Added successfully!", Toast.LENGTH_SHORT).show()
+                    dialog.closeDialog()
+                } else {
+                    Toast.makeText(this, "The exercise already exists!", Toast.LENGTH_SHORT).show()
+                    dialog.closeDialog()
+                }
             }
         }
     }
@@ -150,7 +155,7 @@ class AdjustExerciseActivityAdmin : AppCompatActivity() {
     private fun checkIfExerciseAlreadyExists(exerciseName: String): Boolean {
         var exerciseNotExists = true
         for (i in 0..<exerciseModels.size) {
-            if (exerciseName.lowercase() == exerciseModels[i].getName().lowercase()) {
+            if (exerciseName.trim().lowercase() == exerciseModels[i].getName().trim().lowercase()) {
                 exerciseNotExists = false
             }
         }

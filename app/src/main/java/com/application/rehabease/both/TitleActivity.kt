@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.application.common.ActivityUtils
 import com.application.rehabease.R
 import com.application.rehabease.TrainingEvaluationActivity
+import com.application.rehabease.user.AdjustExerciseActivityUser
 
 class TitleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

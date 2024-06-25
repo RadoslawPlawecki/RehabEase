@@ -37,6 +37,7 @@ class TipActivity : AppCompatActivity() {
 
         val feedbackButtonListener = { view: android.view.View ->
             val intent = Intent(this@TipActivity, ThankYouActivity::class.java)
+            intent.putExtra("TITLE", "Tip of the day!")
             startActivity(intent)
         }
 

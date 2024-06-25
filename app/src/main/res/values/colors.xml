@@ -17,9 +17,5 @@
     <color name="rate_bad">#D53737</color>
     <color name="rate_decent">#D58D37</color>
     <color name="rate_good">#50A33B</color>
-    <color name="shareYourTrainingDark">#CF671C</color>
-    <color name="shareYourTraining">#EA8237</color>
-    <color name="plotYourActivityDark">#AA3B17</color>
-    <color name="plotYourActivity">#CA5934</color>
     <color name="signOut">#AC0000</color>
 </resources>
